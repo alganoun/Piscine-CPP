@@ -6,7 +6,7 @@
 /*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 10:05:18 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/15 13:04:40 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/15 13:19:58 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ int		main(int argc, char **argv)
 			for (int j = 0; argv[i][j]; j++)
 				putchar(toupper(argv[i][j]));
 		}
-	putchar('\n');
+	std::cout << std::endl;
 }

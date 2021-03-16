@@ -6,7 +6,7 @@
 #    By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 10:24:04 by alganoun          #+#    #+#              #
-#    Updated: 2021/03/15 11:34:11 by alganoun         ###   ########lyon.fr    #
+#    Updated: 2021/03/15 15:35:46 by alganoun         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = megaphone
 
 CC = clang++
 
-FLAGS = -Wall -Wextra -Werror -o
+FLAGS = -Wall -Wextra -Werror -std=c++98 -o
 
 SRCS  = ./megaphone.cpp
 
