@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 08:36:08 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/18 14:25:04 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/21 17:52:26 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		contact::set_info(std::string info, std::string *str)
 {
 	std::cout << info << std::endl;
-	if (smart_getline(str) == -1)
+	if (smart_getline(str, 0) == -1)
 		return (-1);
 	return (0);
 }
@@ -84,10 +84,12 @@ void	contact::display_contact_list()
 
 void	contact::display_specific_info()
 {
-	std::cout << MORE_INFO + this->first_name + this->last_name << std::endl;
+	std::cout << "============= " + this->first_name  + " " +
+		 this->last_name + " =============\n" << std::endl;
 	std::cout << "Postal adress : " + this->postal_adress << std::endl;
 	std::cout << "Postal adress : " + this->email_adress << std::endl;
 	std::cout << "Postal adress : " + this->phone_number << std::endl;
+	std::cout << std::endl;
 }
 
 int		main()
@@ -101,12 +103,12 @@ int		main()
 	{
 		std::cin.clear();
 		std::cout << std::string(ADD_MAN) + std::string(SEARCH_MAN) + std::string(EXIT_MAN) << std::endl;
-		if (smart_getline(&line) == -1)
+		if (smart_getline(&line, CAPS_ON) == -1)
 			return (0);
 		if (line == "EXIT")
 		{
 			std::cout << EXIT_WARNING << std::endl;
-			if (smart_getline(&line) == -1)
+			if (smart_getline(&line, CAPS_ON) == -1)
 				return (0);
 			if (line == "Y")
 				line = "EXIT";
@@ -120,19 +122,26 @@ int		main()
 				if (list[index].get_contact_info(index + 1) == -1)
 					return (0);
 		}
-		else if (line == "SEARCH")
+		else if (line == "SEARCH" && index == -1)
+			std::cout << "The Phonebook is empty.\n" << std::endl;
+		else if (line == "SEARCH" && index > -1)
 		{
-			std::cout << TAB_LINE << std::endl;
+			std::cout << TAB_LINE;
 			std::cout << TAB_TITLE;
 			for (int count = 0; count <= index; count++)
 				list[count].display_contact_list();
 			std::cout << TAB_LINE << std::endl;
-			std::cout << SEARCH_MORE << std::endl;
-			std::cout << MENU_BACK << std::endl;
-			if (smart_getline(&line) == -1)
-				return (0);
-			if (line.length() == 1 && line[0] - 48 >= 1 && line[0] - 48 <= 8)
-				list[line[0] - 48 - 1].display_specific_info();
+			while (line != "MENU")
+			{
+				std::cout << SEARCH_MORE << std::endl;
+				std::cout << MENU_BACK << std::endl;
+				if (smart_getline(&line, CAPS_ON) == -1)
+					return (0);
+				if (line.length() == 1 && line[0] - 48 >= 1 && line[0] - 48 <= 8)
+					list[line[0] - 48 - 1].display_specific_info();
+				else if (line != "MENU")
+					std::cout << COMMAND_ERROR << std::endl;
+			}
 		}
 		else
 			std::cout << COMMAND_ERROR << std::endl;
