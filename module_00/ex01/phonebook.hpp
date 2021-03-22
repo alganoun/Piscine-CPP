@@ -6,7 +6,7 @@
 /*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 14:08:51 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/22 10:44:31 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/22 14:44:45 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 # define SEARCH_MORE		"\nYou can enter the contact n. to get more informations on it"
 # define MENU_BACK			"Type MENU to go to the Main Menu\n"
 # define ERROR				"Something went wrong with the phonebook."
+# define NAME_ERROR			"Please enter a correct name."
 # define DATE_ERROR			"Bad format, please use (MM/DD/YY) format."
 # define ERROR				"Something went wrong with the phonebook."
-# define MONTH_ERROR		"Bad month format, please use (MM/DD/YY) format"
+# define MONTH_ERROR		"Bad month format, please use (MM/DD/YY) format."
 # define DAY_ERROR			"Bad day format, please use (MM/DD/YY) format."
 # define YEAR_ERROR			"Bad year format, please use (MM/DD/YY) format."
 # define MAIL_ERROR			"Please use a correct mail adress (example@example.com)"
@@ -42,7 +43,7 @@
 
 class	contact
 {
-	public :
+	private :
 
 	char		contact_n[1];
 	std::string first_name;
@@ -57,12 +58,18 @@ class	contact
 	std::string under_color;
 	std::string dark_secrets;
 
+	public :
+
 	int			set_info(std::string info, std::string *line);
 	int			check_numbers(std::string str);
 	int			get_contact_info(int n);
 	void		display_contact_list();
 	void		print_data(std::string data);
 	void		display_specific_info();
+	int			check_name(std::string str);
+	int			check_number(std::string str);
+	int			check_birthday(std::string str);
+	int			check_mail(std::string str);
 
 };
 
