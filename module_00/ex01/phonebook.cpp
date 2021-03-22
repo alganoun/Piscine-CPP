@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 08:36:08 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/21 17:52:26 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/22 11:11:39 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		contact::set_info(std::string info, std::string *str)
 {
 	std::cout << info << std::endl;
-	if (smart_getline(str, 0) == -1)
+	if (smart_getline(str, CAPS_OFF) == -1)
 		return (-1);
 	return (0);
 }
@@ -74,7 +74,7 @@ void	contact::print_data(std::string data)
 
 void	contact::display_contact_list()
 {
-	std::cout << TAB_LINE << std::endl;
+	std::cout << TAB_LINE;
 	contact::print_data(this->contact_n);
 	contact::print_data(this->first_name);
 	contact::print_data(this->last_name);
@@ -86,9 +86,9 @@ void	contact::display_specific_info()
 {
 	std::cout << "============= " + this->first_name  + " " +
 		 this->last_name + " =============\n" << std::endl;
-	std::cout << "Postal adress : " + this->postal_adress << std::endl;
-	std::cout << "Postal adress : " + this->email_adress << std::endl;
-	std::cout << "Postal adress : " + this->phone_number << std::endl;
+	std::cout << "Postal adress	: " + this->postal_adress << std::endl;
+	std::cout << "E-mail adress	: " + this->email_adress << std::endl;
+	std::cout << "Phone number	: " + this->phone_number << std::endl;
 	std::cout << std::endl;
 }
 
@@ -115,22 +115,24 @@ int		main()
 		}
 		else if (line == "ADD")
 		{
-			index++;
-			if (index > 7)
+			if (index >= 7)
 				std::cout << MAX_CONTACT << std::endl;
 			else
+			{
+				index++;
 				if (list[index].get_contact_info(index + 1) == -1)
 					return (0);
+			}
 		}
 		else if (line == "SEARCH" && index == -1)
 			std::cout << "The Phonebook is empty.\n" << std::endl;
 		else if (line == "SEARCH" && index > -1)
-		{
+		{ // attentiom index max
 			std::cout << TAB_LINE;
 			std::cout << TAB_TITLE;
 			for (int count = 0; count <= index; count++)
 				list[count].display_contact_list();
-			std::cout << TAB_LINE << std::endl;
+			std::cout << TAB_LINE;
 			while (line != "MENU")
 			{
 				std::cout << SEARCH_MORE << std::endl;

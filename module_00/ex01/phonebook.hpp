@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 14:08:51 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/21 17:40:06 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/22 10:44:31 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 # include <iostream>
 
+# define CAPS_OFF			0
 # define CAPS_ON			1
-# define WELCOME			"\n---------- Phonebook 1.0 by Alganoun ----------\n"
+# define WELCOME			"\n---------- PHONEBOOK 1.0 by Alganoun ----------\n"
 # define ADD_MAN			"- Type ADD to add a contact\n"
 # define SEARCH_MAN			"- Type SEARCH to see all added contact\n"
 # define EXIT_MAN			"- Type EXIT to exit the progam\n"
 # define COMMAND_ERROR		"ERROR : command not found.\n"
-# define SEARCH_MORE		"You can enter the contact n. to get more informations on it"
+# define SEARCH_MORE		"\nYou can enter the contact n. to get more informations on it"
 # define MENU_BACK			"Type MENU to go to the Main Menu\n"
 # define ERROR				"Something went wrong with the phonebook."
 # define DATE_ERROR			"Bad format, please use (MM/DD/YY) format."
@@ -37,7 +38,7 @@
 # define EXIT_MESSAGE		" Thank you for using Phonebook 1.0, see you soon."
 # define TAB_LINE			"\n---------------------------------------------\n"
 # define TAB_TITLE			"|CONTACT N.|FIRST NAME| LAST NAME|   LOGIN  |"
-# define TAB_LINE_SMALL		"----------" // est ce que je dois refaire des colonnes pour cette partie ?
+# define TAB_LINE_SMALL		"----------"
 
 class	contact
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook_utils.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 14:13:06 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/21 17:41:54 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/22 11:08:14 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	caps_maker(std::string *str)
 	int i;
 
 	i = 0;
-	while ((*str)[i] && (*str)[i] >= 97 && (*str)[i] <= 122)
+	while ((*str)[i])
 	{
 		(*str)[i] = toupper((*str)[i]);
 		i++;
@@ -32,6 +32,8 @@ int		write_error(std::string str)
 
 int		check_number(std::string str)
 {
+	if (str.length() < 1)
+		return (write_error(PHONE_ERROR));
 	for (int i = 0; str[i] != '\0'; i++)
 		if (str[i] < '0' || str[i] > '9')
 			return (write_error(PHONE_ERROR));
