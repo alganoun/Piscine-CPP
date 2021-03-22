@@ -6,7 +6,7 @@
 #    By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/22 06:54:31 by alganoun          #+#    #+#              #
-#    Updated: 2021/03/22 11:12:08 by alganoun         ###   ########lyon.fr    #
+#    Updated: 2021/03/22 11:41:11 by alganoun         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,7 @@ INC		=	./phonebook.hpp
 SRCS	=	./phonebook.cpp ./phonebook_utils.cpp
 
 
-all		:	$(NAME)
-
-$(NAME)	:	$(SRCS)
+all		:	$(NAME) $(INC)
 			$(CC) $(FLAGS) $(NAME) $(SRCS)
 
 clean	:
