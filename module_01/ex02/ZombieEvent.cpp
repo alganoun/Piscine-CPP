@@ -3,22 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:31:34 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/23 14:26:24 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 12:50:30 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ZombieEvent.hpp"
 
-void	ZombieEvent::setZombieType()
+ZombieEvent::ZombieEvent()
 {
-	this->type = "vert";
+	std::cout << "OH NO A ZOMBIE INVASION !" << std::endl;
+	this->type = "Default";
 }
 
-Zombie	*newZombie(std::string name)
+ZombieEvent::~ZombieEvent()
 {
-	Zombie *new_Z = new Zombie(name, this->type);
-	return (new_Z)
+	std::cout << "APOCALYPSE IS OVER" << std::endl;
+}
+
+void	ZombieEvent::setZombieType(std::string type)
+{
+	this->type = type;
+}
+
+Zombie	*ZombieEvent::newZombie(std::string name)
+{
+	return (new Zombie(name, this->type));
+}
+
+void	ZombieEvent::randomChump(Zombie **new_Z)
+{
+	std::string	name_list[5] = {"Rick", "Daryl", "Glenn", "Maggie", "Carl"};
+
+	srand(time(NULL));
+	int i = rand() % 5;
+
+	if (name_list[i] == "Maggie")
+		ZombieEvent::setZombieType("Female");
+	else if (name_list[i] == "Carl")
+		ZombieEvent::setZombieType("Child");
+	else
+		ZombieEvent::setZombieType("Male");
+	*new_Z = ZombieEvent::newZombie(name_list[i]);
+	(*new_Z)->advert();
 }

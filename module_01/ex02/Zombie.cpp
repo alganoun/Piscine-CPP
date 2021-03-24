@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:04:52 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/23 14:27:22 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/24 12:51:05 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ Zombie::Zombie(std::string name, std::string type)
 
 Zombie::~Zombie()
 {
-	std::cout << this->name + " vanished..." << std::endl;
+	std::cout << this->name + " vanished...\n" << std::endl;
 }
 
 void	Zombie::advert()
 {
-	std::cout << "<" + this->name + this->type + ">"
-		+ "Braiiiiiiinnnssss ..." << std::endl;
+	std::cout << "<" + this->name + " " + this->type + ">"
+		+ " Braiiiiiiinnnssss ..." << std::endl;
 }
