@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:55:33 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 20:18:14 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/29 12:18:15 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	HumanB::setName(std::string name)
 	this->name = name;
 }
 
-void	HumanB::setWeapon(Weapon weapon)
+void	HumanB::setWeapon(Weapon &weapon)
 {
 	this->weapon = &weapon;
 }

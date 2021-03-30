@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:26:38 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 19:12:58 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/29 12:18:34 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:29:54 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 18:01:25 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/30 11:43:33 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 
 	Human();
 	~Human();
-	const Brain	getBrain() const;
+	const Brain	&getBrain() const;
 	std::string	identifier() const;
 };
 

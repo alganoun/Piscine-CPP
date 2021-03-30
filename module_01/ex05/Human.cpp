@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Human.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:33:19 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 18:02:18 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/30 11:43:20 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Human::~Human()
 {
 }
 
-const Brain		Human::getBrain() const
+const Brain		&Human::getBrain() const
 {
 	return(this->brain);
 }

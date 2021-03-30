@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:55:53 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 19:59:25 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/29 12:18:20 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ private:
 	Weapon *weapon;
 public:
 	HumanB(std::string name);
+
 	HumanB(std::string name, Weapon weapon);
 	~HumanB();
 	std::string getName();
 	Weapon *getWeapon();
 	void	setName(std::string name);
-	void	setWeapon(Weapon weapon);
+	void	setWeapon(Weapon &weapon);
 	void attack();
 };
 #endif

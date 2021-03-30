@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 18:36:05 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 20:39:40 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/03/29 12:18:04 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ Weapon::Weapon()
 }
 
 Weapon::Weapon(std::string type)
+:type(type)
 {
-	this->type = type;
 }
 
 Weapon::~Weapon()

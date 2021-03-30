@@ -6,7 +6,7 @@
 /*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 12:36:35 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/29 14:46:01 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/03/30 12:14:01 by alganoun         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int main(int argc, char **argv)
 		std::cout << "You need to specify a seqence to remplace and a remplacing sequence." << std::endl;
 	else
 	{
-		file.open(argv[1]);
-		if (file.is_open())
+		file.open(argv[1]); // gerer le argv[2] vide
+		if (file.is_open()) // mettre un messsage d'erreur. voir si on a pas l'accès voir pour .fail
 		{
 			dup = std::string((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
 			find = dup.find(std::string(argv[2]));
