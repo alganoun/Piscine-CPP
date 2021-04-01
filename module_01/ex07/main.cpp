@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 12:36:35 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/30 12:14:01 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/04/01 18:03:34 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@ int main(int argc, char **argv)
 {
 	std::ifstream file;
 	std::string dup;
-	size_t find;
+	std::size_t find;
 	int founded = 0;
 	if (argc != 4)
 		std::cout << "You need to specify a seqence to remplace and a remplacing sequence." << std::endl;
 	else
 	{
+		if (std::string(argv[2]) == "")
+		{
+			std::cout << "Please enter a word to that need to be replaced" << std::endl;
+			return (-1);
+		}
 		file.open(argv[1]); // gerer le argv[2] vide
 		if (file.is_open()) // mettre un messsage d'erreur. voir si on a pas l'accès voir pour .fail
 		{
@@ -30,9 +35,9 @@ int main(int argc, char **argv)
 			find = dup.find(std::string(argv[2]));
 			while (find != std::string::npos)
 			{
-				founded = 1;
+				founded = find;
 				dup.replace(find, std::string(argv[2]).length(), std::string(argv[3]));
-				find = dup.find(std::string(argv[2]));
+				find = dup.find(std::string(argv[2]), founded + std::string(argv[3]).length());
 			}
 			if (founded != 0)
 			{
