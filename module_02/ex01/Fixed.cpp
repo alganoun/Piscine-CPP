@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 09:42:27 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/30 14:17:16 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 01:24:36 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ Fixed::Fixed()
 }
 
 Fixed::Fixed(const int nb)
-:fixed_value(nb);
 {
-
+	this->fixed_value = nb << bit_nb;
 }
 
 Fixed::Fixed(const float nb)
-:fixed_value(nb)
+{
+	this->fixed_value = roundf(nb * (1 << bit_nb));
 }
-}
+
 
 Fixed::Fixed(const Fixed &copied)
 {
@@ -49,6 +49,8 @@ Fixed	&Fixed::operator=(Fixed const &rhs)
 	return (*this);
 }
 
+
+
 int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -63,10 +65,16 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-
+	return ((float)this->fixed_value / (float)(1 << bit_nb));
 }
 
 int		Fixed::toInt(void)	const
 {
+	return (this->fixed_value >> bit_nb);
+}
 
+std::ostream &operator<<(std::ostream &out, Fixed const &tmp)
+{
+	out << tmp.toFloat();
+	return (out);
 }

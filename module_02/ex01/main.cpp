@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 10:04:37 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/30 13:33:24 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/04/02 01:17:23 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int main()
 	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
 	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
 	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-return 0;
+	return 0;
 }
