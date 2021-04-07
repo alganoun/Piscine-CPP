@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brain.cpp                                          :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 15:26:27 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/28 18:06:36 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/07 11:30:34 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ std::string		Brain::identifier() const
 {
 	const long adr = (long)this;
 	std::stringstream ss;
-	str << "0x" << std::uppercase << std::hex << adr;
+	ss << "0x" << std::uppercase << std::hex << adr;
 	return (ss.str());
 }

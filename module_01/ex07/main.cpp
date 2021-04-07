@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 12:36:35 by alganoun          #+#    #+#             */
-/*   Updated: 2021/04/01 18:03:34 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/07 11:48:00 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 			std::cout << "Please enter a word to that need to be replaced" << std::endl;
 			return (-1);
 		}
-		file.open(argv[1]); // gerer le argv[2] vide
+		file.open(argv[1]);
 		if (file.is_open()) // mettre un messsage d'erreur. voir si on a pas l'accès voir pour .fail
 		{
 			dup = std::string((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
@@ -47,8 +47,10 @@ int main(int argc, char **argv)
 			}
 			else
 				std::cout << "Nothing to replace in the file." << std::endl;
+			file.close();
 		}
-		file.close();
+		else
+			std::cout << "Couldn't open the file." << std::endl;
 	}
 	return (0);
 }

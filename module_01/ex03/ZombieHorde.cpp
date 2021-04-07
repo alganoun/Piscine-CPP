@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 12:55:08 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/03/27 15:12:58 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/07 11:24:37 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ZombieHorde::ZombieHorde(int n)
 	this->Zombies_nb = n;
 
 	if (n < 2)
-		std::cout << "No Zombies available to build  a badass horde." << std::endl;
+		std::cout << "No Zombies available to build a badass horde." << std::endl;
 }
 
 void	ZombieHorde::announce()

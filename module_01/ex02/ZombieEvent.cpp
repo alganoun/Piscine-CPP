@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alganoun <alganoun@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 11:31:34 by alganoun          #+#    #+#             */
-/*   Updated: 2021/03/30 14:37:39 by alganoun         ###   ########lyon.fr   */
+/*   Updated: 2021/04/07 15:22:27 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ZombieEvent::randomChump(Zombie **new_Z)
 {
 	std::string	name_list[5] = {"Rick", "Daryl", "Glenn", "Maggie", "Carl"};
 
-	//srand(time(NULL));
+	srand(time(NULL));
 	int i = rand() % 5;
 
 	if (name_list[i] == "Maggie")
