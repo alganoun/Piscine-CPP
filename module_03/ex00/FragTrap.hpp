@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/07 16:22:17 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/10 19:51:11 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ private:
 	int			lvl;
 	int			melee;
 	int			ranged;
-	int			current;
 	int			armor_red;
 
 	std::string	name;
@@ -35,7 +34,7 @@ public:
 	FragTrap(std::string name);
 	~FragTrap();
 	int		getCurrent();
-	int		getHp();
+	int		getEnergy();
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
