@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/10 20:00:36 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/12 14:05:06 by allanganoun      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	FragTrap::beRepaired(unsigned int amount)
 	else
 	{
 		this->hp += amount;
-		if (this->hp > 100)
-			this->hp = 100;
+		if (this->hp > this->max_hp)
+			this->hp = this->max_hp;
 		std::cout << this->name + " healed "<< amount << " and is now " << this->hp << std::endl;
 	}
 }
