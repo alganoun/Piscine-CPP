@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/10 20:00:36 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/12 19:42:59 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,13 @@ FragTrap::~FragTrap()
 		std::cout << this->name + " vanishes..." << std::endl;
 }
 
-int		FragTrap::getEnergy()
+FragTrap &FragTrap::operator=(FragTrap const &rhs)
+{
+	this->energy = rhs.getEnergy();
+	return (*this);
+}
+
+int		FragTrap::getEnergy() const
 {
 	return (this->energy);
 }
@@ -95,4 +101,10 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		std::cout << this->name + " cant attack without energy." << std::endl;
 	else if (this->hp == 0)
 		std::cout << this->name + " is dead, he can't attack anymore." << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &out, FragTrap const &temp)
+{
+	out << temp.getEnergy();
+	return (out);
 }

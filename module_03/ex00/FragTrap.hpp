@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fragtrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/10 19:51:11 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/12 19:44:44 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	~FragTrap();
-	int		getCurrent();
-	int		getEnergy();
+	FragTrap &operator=(FragTrap const &rhs);
+	int		getEnergy() const;
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
@@ -42,5 +42,6 @@ public:
 	void	vaulthunter_dot_exe(std::string const & target);
 };
 
+std::ostream	&operator<<(std::ostream &out, FragTrap const &temp);
 
 #endif

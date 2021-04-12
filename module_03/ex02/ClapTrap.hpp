@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:46:34 by allanganoun      ###   ########.fr       */
+/*   Created: 2021/04/12 17:06:25 by allanganoun       #+#    #+#             */
+/*   Updated: 2021/04/12 19:37:35 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <iostream>
 # include <unistd.h>
-class FragTrap
+class ClapTrap
 {
-private:
+protected:
 	int			hp;
 	int			max_hp;
 	int			energy;
@@ -30,18 +30,19 @@ private:
 	std::string	name;
 	std::string	attack_name;
 public:
-	FragTrap();
-	FragTrap(std::string name);
-	~FragTrap();
-	FragTrap &operator=(FragTrap const &rhs);
+	ClapTrap();
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap & copied);
+	ClapTrap	&operator=(ClapTrap const &rhs);
+	~ClapTrap();
 	int		getEnergy() const;
+	void	display_stats();
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	vaulthunter_dot_exe(std::string const & target);
 };
 
-std::ostream	&operator<<(std::ostream &out, FragTrap const &temp);
+std::ostream	&operator<<(std::ostream &out, ClapTrap const &temp);
 
 #endif
