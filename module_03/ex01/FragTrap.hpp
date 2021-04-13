@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:46:34 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/13 23:58:37 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ public:
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	vaulthunter_dot_exe(std::string const & target);
+	void	display_stats();
 };
-
-std::ostream	&operator<<(std::ostream &out, FragTrap const &temp);
 
 #endif

@@ -6,47 +6,56 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:12:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:36:52 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 00:50:52 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
-:hp(100), max_hp(100), energy(100), max_energy(100), lvl(1), melee(30), ranged(20), armor_red(5)
+:name("John Doe")
 {
-	this->name = "John Doe";
+	this->lvl = 1;
 	this->attack_name = "None";
-	std::cout << "ClapTrap constructor called." << std::endl;
+	std::cout << "[CLAPTRAP] Default constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
-:hp(100), max_hp(100), energy(100), max_energy(100), lvl(1), melee(30), ranged(20), armor_red(5)
+:name(name)
 {
-	this->name = name;
+	this->lvl = 1;
 	this->attack_name = "None";
-	std::cout << this->name + " appears." << std::endl;
+	std::cout << "[CLAPTRAP] " + this->name + " appears." << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap & copied)
+ClapTrap::ClapTrap(const ClapTrap &copied)
+:name(copied.name)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copied;
-}
-
-ClapTrap	&ClapTrap::operator=(ClapTrap const &rhs)
-{
-	std::cout << "Operator assignation called." << std::endl;
-	this->energy = rhs.getEnergy();
-	return (*this);
+	std::cout << "[CLAPTRAP] copy constructor called." << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	if (this->hp == 0)
-		std::cout << this->name + "'s corpse vanishes..." << std::endl;
-	else
-		std::cout << this->name + " vanishes..." << std::endl;
+	std::cout << "[CLAPTRAP] Destructor called." << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &rhs)
+{
+	if (this == &rhs)
+		return (*this);
+	this->name = rhs.name;
+	this->hp = rhs.hp;
+	this->max_hp = rhs.max_hp;
+	this->energy = rhs.energy;
+	this->max_energy = rhs.max_energy;
+	this->lvl = rhs.lvl;
+	this->melee = rhs.melee;
+	this->ranged = rhs.ranged;
+	this->armor_red = rhs.armor_red;
+	this->attack_name = rhs.attack_name;
+	std::cout << "[CLAPTRAP] Assignation operator called." << std::endl;
+	return (*this);
 }
 
 int		ClapTrap::getEnergy() const
@@ -54,36 +63,29 @@ int		ClapTrap::getEnergy() const
 	return (this->energy);
 }
 
-void	ClapTrap::display_stats()
-{
-	std::cout << this->name + "Stats :" << std::endl;
-	std::cout << "Level : " << this->lvl << std::endl;
-	std::cout << "HP : " << this->hp << std::string(" / ") << this->max_hp << std::endl;
-	std::cout << "Energy : " << this->energy << std::string(" / ") << this->max_energy << std::endl;
-	std::cout << "Melee attack damages : " << this->melee << std::endl;
-	std::cout << "Ranged attack damages : " << this->ranged << std::endl;
-}
-
 void	ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "[RANGED] " + this->name + " uses " +
-		this->attack_name + " on " + target +
+	std::cout << "[RANGED] " + this->name + " uses ranged attack on " + target +
 		" causing " << this->ranged << " points of damages" << std::endl;
 }
 
 void	ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "[MELEE] " + this->name + " uses " +
-		this->attack_name + " on " + target +
+	std::cout << "[MELEE] " + this->name + " uses a melee attack on " + target +
 		" causing " << this->melee<< " points of damages" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hp -= (amount - this->armor_red);
-	if (this->hp < 0)
-		this->hp = 0;
-	std::cout << this->name + " HPs are now " << this->hp << std::endl;
+	if (this->hp > 0)
+	{
+		this->hp -= (amount - this->armor_red);
+		if (this->hp < 0)
+			this->hp = 0;
+		std::cout << this->name + " took a " << amount << " damages hit, his HPs are now " << this->hp << std::endl;
+	}
+	else if (this->hp == 0)
+		std::cout << this->name+ " is dead he can't take more damages." << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount)
@@ -99,8 +101,12 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
-std::ostream	&operator<<(std::ostream &out, ClapTrap const & temp)
+void	ClapTrap::display_stats()
 {
-	out << temp.getEnergy();
-	return out;
+	std::cout << this->name + " Stats :" << std::endl;
+	std::cout << "Level : " << this->lvl << std::endl;
+	std::cout << "HP : " << this->hp << std::string(" / ") << this->max_hp << std::endl;
+	std::cout << "Energy : " << this->energy << std::string(" / ") << this->max_energy << std::endl;
+	std::cout << "Melee attack damages : " << this->melee << std::endl;
+	std::cout << "Ranged attack damages : " << this->ranged << std::endl;
 }

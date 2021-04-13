@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:25:13 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 18:49:38 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 00:55:31 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SCAVTRAP_HPP
 
 # include <iostream>
-# include <unistd.h>
 # include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap
@@ -25,11 +24,9 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap & copied);
-	ScavTrap		&operator=(ScavTrap const &rhs);
 	~ScavTrap();
+	ScavTrap	&operator=(ScavTrap const &rhs);
 	void	challengeNewcomer();
 };
-
-std::ostream	&operator<<(std::ostream &out, ScavTrap const &temp);
 
 #endif

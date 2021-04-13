@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 20:23:19 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 01:08:09 by allanganoun      ###   ########.fr       */
+/*   Created: 2021/04/13 17:56:38 by allanganoun       #+#    #+#             */
+/*   Updated: 2021/04/13 22:16:04 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NINJATRAP_HPP
-# define NINJATRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
 # include <iostream>
+# include <unistd.h>
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"
+# include "NinjaTrap.hpp"
 
-class NinjaTrap : public ClapTrap
+class SuperTrap : public FragTrap, public NinjaTrap
 {
 private:
 
 public:
-	NinjaTrap();
-	NinjaTrap(std::string name);
-	NinjaTrap(const NinjaTrap & copied);
-	~NinjaTrap();
-	NinjaTrap	&operator=(NinjaTrap const &rhs);
-	void	ninjaShoebox(FragTrap &FragTrap);
-	void	ninjaShoebox(ScavTrap &ScavTrap);
-	void	ninjaShoebox(ClapTrap &Claptrap);
-	void	ninjaShoebox(NinjaTrap &NinjaTrap);
+	SuperTrap();
+	SuperTrap(std::string name);
+	SuperTrap(const SuperTrap & copied);
+	SuperTrap	&operator=(SuperTrap const &rhs);
+	~SuperTrap();
+
+	void	rangedAttack(std::string const &target);
+	void	meleeAttack(std::string const &target);
 };
+
+std::ostream	&operator<<(std::ostream &out, SuperTrap const &temp);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:45:44 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 01:23:53 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 01:30:07 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 #include "NinjaTrap.hpp"
-#include "unistd.h"
+#include "SuperTrap.hpp"
 
 int main()
 {
@@ -79,7 +79,6 @@ int main()
 	std::cout << std::endl;
 
 	NinjaTrap Robin("Robin");
-	NinjaTrap Nightwing(Robin);
 	std::cout << std::endl;
 
 	Superman.beRepaired(2000);
@@ -103,8 +102,24 @@ int main()
 	Robin.display_stats();
 	std::cout << std::endl;
 
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	std::cout << "===================== | Test SuperTrap | =====================" << std::endl;
 	std::cout << std::endl;
-	Nightwing.display_stats();
+
+	SuperTrap Darkseid("Darkseid");
+	SuperTrap SteppenWolf(Darkseid);
+	std::cout << std::endl;
+
+	Darkseid.takeDamage(60);
+	SteppenWolf.takeDamage(30);
+
+	std::cout << std::endl;
+	Darkseid.display_stats();
+	std::cout << std::endl;
+
+	std::cout << std::endl;
+	SteppenWolf.display_stats();
 	std::cout << std::endl;
 
 	return (0);

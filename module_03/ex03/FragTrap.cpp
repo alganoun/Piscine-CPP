@@ -6,45 +6,65 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:36:50 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 00:57:42 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap()
+:ClapTrap()
 {
 	this->name = "John Doe";
+	this->hp = 100;
+	this->max_hp = 100;
+	this->energy = 100;
+	this->max_energy = 100;
+	this->lvl = 1;
+	this->melee = 30;
+	this->ranged = 20;
+	this->armor_red = 5;
 	this->attack_name = "None";
-	std::cout << "[FRAGTRAP] : " + this->name + " appears." << std::endl;
+	std::cout << "[FRAGTRAP] Default constructor called." << std::endl;
 }
 
 FragTrap::FragTrap(std::string name)
+:ClapTrap(name)
 {
-	this->name = name;
+
+	this->hp = 100;
+	this->max_hp = 100;
+	this->energy = 100;
+	this->max_energy = 100;
+	this->lvl = 1;
+	this->melee = 30;
+	this->ranged = 20;
+	this->armor_red = 5;
 	this->attack_name = "None";
-	std::cout << "[FRAGTRAP] : " + this->name + " appears." << std::endl;
+	std::cout << "[FRAGTRAP] " + this->name + " appears." << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap & copied)
+FragTrap::FragTrap(FragTrap const &copied)
+:ClapTrap(copied)
 {
-	std::cout << "[FRAGTRAP] : Copy constructor called" << std::endl;
-	*this = copied;
-}
-
-FragTrap	&FragTrap::operator=(FragTrap const &rhs)
-{
-	std::cout << "Operator assignation called." << std::endl;
-	this->energy = rhs.getEnergy();
-	return (*this);
+	std::cout << "[FRAGTRAP] copy constructor called." << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
 	if (this->hp == 0)
-		std::cout << "[FRAGTRAP] : " + this->name + "'s corpse vanishes..." << std::endl;
+		std::cout << "[FRAGTRAP] " +  this->name + "'s corpse vanishes..." << std::endl;
 	else
-		std::cout << "[FRAGTRAP] :" + this->name + " vanishes..." << std::endl;
+		std::cout << "[FRAGTRAP] " +  this->name + " vanishes..." << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &rhs)
+{
+	if (this == &rhs)
+		return (*this);
+	ClapTrap::operator=(rhs);
+	std::cout << "[FRAGTRAP] Assignation operator called." << std::endl;
+	return (*this);
 }
 
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
@@ -63,14 +83,8 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		else
 			this->rangedAttack(target);
 	}
-	else if (this->energy == 0)
+	else if (this->energy < 25)
 		std::cout << this->name + " cant attack without energy." << std::endl;
 	else if (this->hp == 0)
 		std::cout << this->name + " is dead, he can't attack anymore." << std::endl;
-}
-
-std::ostream	&operator<<(std::ostream &out, FragTrap const & temp)
-{
-	out << temp.getEnergy();
-	return out;
 }

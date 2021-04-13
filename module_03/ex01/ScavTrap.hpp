@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:25:13 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:48:55 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 00:11:15 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,12 @@ public:
 	~ScavTrap();
 	ScavTrap	&operator=(ScavTrap const &rhs);
 	int		getEnergy() const;
-	void	display_stats();
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	challengeNewcomer();
+	void	display_stats();
 };
 
-std::ostream	&operator<<(std::ostream &out, ScavTrap const &temp);
 #endif

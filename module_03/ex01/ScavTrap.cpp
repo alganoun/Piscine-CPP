@@ -6,64 +6,78 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:24:32 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/12 19:48:05 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 00:48:46 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap()
-:hp(100), max_hp(100), energy(100), max_energy(100), lvl(1), melee(30), ranged(20), armor_red(5)
 {
 	this->name = "John Doe";
+	this->hp = 100;
+	this->max_hp = 100;
+	this->energy = 100;
+	this->max_energy = 100;
+	this->lvl = 1;
+	this->melee = 30;
+	this->ranged = 20;
+	this->armor_red = 5;
 	this->attack_name = "None";
+	std::cout << "[SCAVTRAP] Default constructor called." << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name)
-:hp(100), max_hp(100), energy(100), max_energy(100), lvl(1), melee(30), ranged(20), armor_red(5)
 {
 	this->name = name;
+	this->hp = 100;
+	this->max_hp = 100;
+	this->energy = 100;
+	this->max_energy = 100;
+	this->lvl = 1;
+	this->melee = 30;
+	this->ranged = 20;
+	this->armor_red = 5;
 	this->attack_name = "None";
-	std::cout <<  this->name + " appears and is guarding the gate." << std::endl;
+	std::cout << "[SCAVTRAP] " + this->name + " appears and is guarding the gate." << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &copied)
+:name(copied.name)
 {
-	std::cout << "Copy constructor called." << std::endl;
 	*this = copied;
-}
-
-ScavTrap	&ScavTrap::operator=(ScavTrap const &rhs)
-{
+	std::cout << "[SCAVTRAP] copy constructor called." << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
 	if (this->hp == 0)
-		std::cout << this->name + " is defeated the gate is no more guarded." << std::endl;
+		std::cout << "[SCAVTRAP] " + this->name + " is defeated the gate is no more guarded." << std::endl;
 	else
-		std::cout << this->name + " vanishes and the door remains closed." << std::endl;
+		std::cout << "[SCAVTRAP] " + this->name + " vanishes and the door remains closed." << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 {
-	this->energy = rhs.getEnergy();
+	if (this == &rhs)
+		return (*this);
+	this->name = rhs.name;
+	this->hp = rhs.hp;
+	this->max_hp = rhs.max_hp;
+	this->energy = rhs.energy;
+	this->max_energy = rhs.max_energy;
+	this->lvl = rhs.lvl;
+	this->melee = rhs.melee;
+	this->ranged = rhs.ranged;
+	this->armor_red = rhs.armor_red;
+	this->attack_name = rhs.attack_name;
+	std::cout << "[SCAVTRAP] Assignation operator called." << std::endl;
 	return (*this);
 }
 
 int		ScavTrap::getEnergy() const
 {
 	return (this->energy);
-}
-
-void	ScavTrap::display_stats()
-{
-	std::cout << this->name + "Stats :" << std::endl;
-	std::cout << "Level : " << this->lvl << std::endl;
-	std::cout << "HP : " << this->hp << std::string(" / ") << this->max_hp << std::endl;
-	std::cout << "Energy : " << this->energy << std::string(" / ") << this->max_energy << std::endl;
-	std::cout << "Melee attack damages : " << this->melee << std::endl;
-	std::cout << "Ranged attack damages : " << this->ranged << std::endl;
 }
 
 void	ScavTrap::rangedAttack(std::string const & target)
@@ -80,10 +94,15 @@ void	ScavTrap::meleeAttack(std::string const & target)
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	this->hp -= (amount - this->armor_red);
-	if (this->hp < 0)
-		this->hp = 0;
-	std::cout << this->name + " HPs are now " << this->hp << std::endl;
+	if (this->hp > 0)
+	{
+		this->hp -= (amount - this->armor_red);
+		if (this->hp < 0)
+			this->hp = 0;
+		std::cout << this->name + " took a " << amount << " damages hit, his HPs are now " << this->hp << std::endl;
+	}
+	else if (this->hp == 0)
+		std::cout << this->name+ " is dead he can't take more damages." << std::endl;
 }
 
 void	ScavTrap::beRepaired(unsigned int amount)
@@ -108,8 +127,12 @@ void	ScavTrap::challengeNewcomer()
 	std::cout << "[CHALLENGE] Hello fellow traveler I challenge you in a " + challenge_list[i] + " game." << std::endl;
 }
 
-std::ostream	&operator<<(std::ostream &out, ScavTrap const &temp)
+void	ScavTrap::display_stats()
 {
-	out << temp.getEnergy();
-	return (out);
+	std::cout << this->name + " Stats :" << std::endl;
+	std::cout << "Level : " << this->lvl << std::endl;
+	std::cout << "HP : " << this->hp << std::string(" / ") << this->max_hp << std::endl;
+	std::cout << "Energy : " << this->energy << std::string(" / ") << this->max_energy << std::endl;
+	std::cout << "Melee attack damages : " << this->melee << std::endl;
+	std::cout << "Ranged attack damages : " << this->ranged << std::endl;
 }
