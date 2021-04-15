@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:24:32 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:59:47 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:46:11 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &rhs)
 	return (*this);
 }
 
-void	ScavTrap::challengeNewcomer()
+void	ScavTrap::challengeNewcomer() const
 {
 	std::string	challenge_list[5] = {"Shi Fu Mi", "Chess", "Poker", "Monopoly", "Connect 4"};
 	static int random = 0;

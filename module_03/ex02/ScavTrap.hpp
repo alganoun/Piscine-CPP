@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:25:13 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:55:31 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:46:16 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap & copied);
-	~ScavTrap();
+	virtual ~ScavTrap();
 	ScavTrap	&operator=(ScavTrap const &rhs);
-	void	challengeNewcomer();
+	void	challengeNewcomer() const;
 };
 
 #endif

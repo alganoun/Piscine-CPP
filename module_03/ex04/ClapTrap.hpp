@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:06:25 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 01:05:14 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:59:13 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ public:
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap & copied);
 	ClapTrap	&operator=(ClapTrap const &rhs);
-	~ClapTrap();
-	std::string getName();
+	virtual ~ClapTrap();
+	std::string	getName() const;
 	int		getEnergy() const;
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	display_stats();
+	void	display_stats() const;
 };
 
 #endif

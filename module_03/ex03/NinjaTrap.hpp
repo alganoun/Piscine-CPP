@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 20:23:19 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 01:08:09 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 16:03:28 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	NinjaTrap();
 	NinjaTrap(std::string name);
 	NinjaTrap(const NinjaTrap & copied);
-	~NinjaTrap();
+	virtual ~NinjaTrap();
 	NinjaTrap	&operator=(NinjaTrap const &rhs);
 	void	ninjaShoebox(FragTrap &FragTrap);
 	void	ninjaShoebox(ScavTrap &ScavTrap);

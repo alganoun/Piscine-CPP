@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:58:16 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 16:03:17 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap const &copied);
-	~FragTrap();
+	virtual ~FragTrap();
 	FragTrap &operator=(FragTrap const &rhs);
 	void	vaulthunter_dot_exe(std::string const & target);
 };

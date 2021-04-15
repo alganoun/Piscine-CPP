@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:56:38 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/13 22:16:04 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/14 16:04:50 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	SuperTrap(std::string name);
 	SuperTrap(const SuperTrap & copied);
 	SuperTrap	&operator=(SuperTrap const &rhs);
-	~SuperTrap();
+	virtual ~SuperTrap();
 
 	void	rangedAttack(std::string const &target);
 	void	meleeAttack(std::string const &target);

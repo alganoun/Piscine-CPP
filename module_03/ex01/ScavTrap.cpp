@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:24:32 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:48:46 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:44:22 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,24 +82,25 @@ int		ScavTrap::getEnergy() const
 
 void	ScavTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "[RANGED] " + this->name + " uses ranged attack on " + target +
+	std::cout << "[SCAVTRAP] <RANGED> " + this->name + " uses ranged attack on " + target +
 		" causing " << this->ranged << " points of damages" << std::endl;
 }
 
 void	ScavTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "[MELEE] " + this->name + " uses a melee attack on " + target +
+	std::cout << "[SCAVTRAP] <MELEE> " + this->name + " uses a melee attack on " + target +
 		" causing " << this->melee<< " points of damages" << std::endl;
 }
 
 void	ScavTrap::takeDamage(unsigned int amount)
 {
-	if (this->hp > 0)
+	int amount2 = (int)amount;
+	if (this->hp > 0 && amount2 > 0)
 	{
-		this->hp -= (amount - this->armor_red);
+		this->hp -= (amount2 - this->armor_red);
 		if (this->hp < 0)
 			this->hp = 0;
-		std::cout << this->name + " took a " << amount << " damages hit, his HPs are now " << this->hp << std::endl;
+		std::cout << this->name + " took a " << amount2 << " damages hit, his HPs are now " << this->hp << std::endl;
 	}
 	else if (this->hp == 0)
 		std::cout << this->name+ " is dead he can't take more damages." << std::endl;
@@ -107,18 +108,19 @@ void	ScavTrap::takeDamage(unsigned int amount)
 
 void	ScavTrap::beRepaired(unsigned int amount)
 {
+	int amount2 = (int)amount;
 	if (hp == 0)
 		std::cout << this->name + " is already dead, he can't be healed." << std::endl;
-	else
+	else if (amount2 > 0)
 	{
-		this->hp += amount;
-		if (this->hp > this->max_hp)
-			this->hp = this->max_hp;
-		std::cout << this->name + " healed "<< amount << " and is now " << this->hp << std::endl;
+		this->hp += amount2;
+		if (this->hp > 100)
+			this->hp = 100;
+		std::cout << this->name + " healed "<< amount2 << " and is now " << this->hp << std::endl;
 	}
 }
 
-void	ScavTrap::challengeNewcomer()
+void	ScavTrap::challengeNewcomer() const
 {
 	std::string	challenge_list[5] = {"Shi Fu Mi", "Chess", "Poker", "Monopoly", "Connect 4"};
 	static int random = 0;
@@ -127,7 +129,7 @@ void	ScavTrap::challengeNewcomer()
 	std::cout << "[CHALLENGE] Hello fellow traveler I challenge you in a " + challenge_list[i] + " game." << std::endl;
 }
 
-void	ScavTrap::display_stats()
+void	ScavTrap::display_stats() const
 {
 	std::cout << this->name + " Stats :" << std::endl;
 	std::cout << "Level : " << this->lvl << std::endl;

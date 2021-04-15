@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:45:44 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/13 20:57:40 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:37:58 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main()
 	Green_Lantern.meleeAttack("Superman");
 	Green_Lantern.challengeNewcomer();
 	Green_Lantern.takeDamage(50);
-	Green_Lantern.takeDamage(50);;
+	Green_Lantern.takeDamage(50);
 	Green_Lantern.takeDamage(50);
 	std::cout << std::endl;
 

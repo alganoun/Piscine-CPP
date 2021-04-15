@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:46:01 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:41:47 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,30 +39,22 @@ FragTrap::FragTrap(std::string name)
 	this->ranged = 20;
 	this->armor_red = 5;
 	this->attack_name = "None";
-	std::cout << "[FRAGTRAP] " + this->name + " appears." << std::endl;
+	std::cout << "[FRGATRAP] " + this->name + " appears." << std::endl;
 }
 
 FragTrap::FragTrap(FragTrap const &copied)
 :name(copied.name)
 {
-	this->hp = copied.hp;
-	this->max_hp = copied.max_hp;
-	this->energy = copied.energy;
-	this->max_energy = copied.max_energy;
-	this->lvl = copied.lvl;
-	this->melee =copied.melee;
-	this->ranged = copied.ranged;
-	this->armor_red = copied.armor_red;
-	this->attack_name = copied.attack_name;
+	*this = copied;
 	std::cout << "[FRAGTRAP] copy constructor called." << std::endl;
 }
 
 FragTrap::~FragTrap()
 {
 	if (this->hp == 0)
-		std::cout << "[FRAGTRAP] " +  this->name + "'s corpse vanishes..." << std::endl;
+		std::cout << this->name + "'s corpse vanishes..." << std::endl;
 	else
-		std::cout << "[FRAGTRAP] " +  this->name + " vanishes..." << std::endl;
+		std::cout << this->name + " vanishes..." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &rhs)
@@ -104,12 +96,13 @@ void	FragTrap::meleeAttack(std::string const & target)
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	if (this->hp > 0)
+	int amount2 = (int)amount;
+	if (this->hp > 0 && amount2 > 0)
 	{
-		this->hp -= (amount - this->armor_red);
+		this->hp -= (amount2 - this->armor_red);
 		if (this->hp < 0)
 			this->hp = 0;
-		std::cout << this->name + " took a " << amount << " damages hit, his HPs are now " << this->hp << std::endl;
+		std::cout << this->name + " took a " << amount2 << " damages hit, his HPs are now " << this->hp << std::endl;
 	}
 	else if (this->hp == 0)
 		std::cout << this->name+ " is dead he can't take more damages." << std::endl;
@@ -117,14 +110,15 @@ void	FragTrap::takeDamage(unsigned int amount)
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
+	int amount2 = (int)amount;
 	if (hp == 0)
 		std::cout << this->name + " is already dead, he can't be healed." << std::endl;
-	else
+	else if (amount2 > 0)
 	{
-		this->hp += amount;
-		if (this->hp > this->max_hp)
-			this->hp = this->max_hp;
-		std::cout << this->name + " healed "<< amount << " and is now " << this->hp << std::endl;
+		this->hp += amount2;
+		if (this->hp > 100)
+			this->hp = 100;
+		std::cout << this->name + " healed "<< amount2 << " and is now " << this->hp << std::endl;
 	}
 }
 
@@ -144,13 +138,13 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		else
 			this->rangedAttack(target);
 	}
-	else if (this->energy < 25)
+	else if (this->energy == 0)
 		std::cout << this->name + " cant attack without energy." << std::endl;
 	else if (this->hp == 0)
 		std::cout << this->name + " is dead, he can't attack anymore." << std::endl;
 }
 
-void	FragTrap::display_stats()
+void	FragTrap::display_stats() const
 {
 	std::cout << this->name + " Stats :" << std::endl;
 	std::cout << "Level : " << this->lvl << std::endl;

@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:41:26 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 15:41:01 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,13 @@ void	FragTrap::meleeAttack(std::string const & target)
 
 void	FragTrap::takeDamage(unsigned int amount)
 {
-	if (this->hp > 0)
+	int amount2 = (int)amount;
+	if (this->hp > 0 && amount2 > 0)
 	{
-		this->hp -= (amount - this->armor_red);
+		this->hp -= (amount2 - this->armor_red);
 		if (this->hp < 0)
 			this->hp = 0;
-		std::cout << this->name + " took a " << amount << " damages hit, his HPs are now " << this->hp << std::endl;
+		std::cout << this->name + " took a " << amount2 << " damages hit, his HPs are now " << this->hp << std::endl;
 	}
 	else if (this->hp == 0)
 		std::cout << this->name+ " is dead he can't take more damages." << std::endl;
@@ -109,14 +110,15 @@ void	FragTrap::takeDamage(unsigned int amount)
 
 void	FragTrap::beRepaired(unsigned int amount)
 {
+	int amount2 = (int)amount;
 	if (hp == 0)
 		std::cout << this->name + " is already dead, he can't be healed." << std::endl;
-	else
+	else if (amount2 > 0)
 	{
-		this->hp += amount;
+		this->hp += amount2;
 		if (this->hp > 100)
 			this->hp = 100;
-		std::cout << this->name + " healed "<< amount << " and is now " << this->hp << std::endl;
+		std::cout << this->name + " healed "<< amount2 << " and is now " << this->hp << std::endl;
 	}
 }
 
@@ -142,7 +144,7 @@ void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 		std::cout << this->name + " is dead, he can't attack anymore." << std::endl;
 }
 
-void	FragTrap::display_stats()
+void	FragTrap::display_stats() const
 {
 	std::cout << this->name + " Stats :" << std::endl;
 	std::cout << "Level : " << this->lvl << std::endl;
