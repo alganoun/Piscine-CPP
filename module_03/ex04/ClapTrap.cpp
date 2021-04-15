@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:12:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 15:58:48 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:20:57 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ int		ClapTrap::getEnergy() const
 	return (this->energy);
 }
 
-void	ClapTrap::rangedAttack(std::string const & target)
+void	ClapTrap::rangedAttack(std::string const & target) const
 {
 	std::cout << "[RANGED] " + this->name + " uses ranged attack on " + target +
 		" causing " << this->ranged << " points of damages" << std::endl;
 }
 
-void	ClapTrap::meleeAttack(std::string const & target)
+void	ClapTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "[MELEE] " + this->name + " uses a melee attack on " + target +
 		" causing " << this->melee<< " points of damages" << std::endl;
