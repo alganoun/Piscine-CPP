@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 17:56:38 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 16:04:50 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:34:51 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SUPERTRAP_HPP
 
 # include <iostream>
-# include <unistd.h>
+# include <cstdlib>
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"

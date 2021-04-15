@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:25:13 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 16:04:42 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:34:43 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SCAVTRAP_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap

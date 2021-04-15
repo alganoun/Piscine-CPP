@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 20:23:19 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 16:03:28 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:34:11 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define NINJATRAP_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include "FragTrap.hpp"
 # include "ScavTrap.hpp"
 # include "ClapTrap.hpp"

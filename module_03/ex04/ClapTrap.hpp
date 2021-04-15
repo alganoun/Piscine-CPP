@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:06:25 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 16:21:06 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:34:23 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <unistd.h>
+# include <cstdlib>
 class ClapTrap
 {
 protected:

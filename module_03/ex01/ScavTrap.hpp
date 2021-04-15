@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:25:13 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 15:44:28 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:35:34 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCAVTRAP_HPP
 
 # include <iostream>
-# include <unistd.h>
+# include <cstdlib>
 class ScavTrap
 {
 private:
@@ -36,8 +36,8 @@ public:
 	~ScavTrap();
 	ScavTrap	&operator=(ScavTrap const &rhs);
 	int		getEnergy() const;
-	void	rangedAttack(std::string const & target);
-	void	meleeAttack(std::string const & target);
+	void	rangedAttack(std::string const & target) const;
+	void	meleeAttack(std::string const & target) const;
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	challengeNewcomer() const;

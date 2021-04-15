@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/10 20:24:32 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 00:59:47 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:32:59 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ ScavTrap::ScavTrap()
 	this->name = "John Doe";
 	this->hp = 100;
 	this->max_hp = 100;
-	this->energy = 100;
-	this->max_energy = 100;
+	this->energy = 50;
+	this->max_energy = 50;
 	this->lvl = 1;
-	this->melee = 30;
-	this->ranged = 20;
-	this->armor_red = 5;
+	this->melee = 20;
+	this->ranged = 15;
+	this->armor_red = 3;
 	this->attack_name = "None";
 	std::cout << "[SCAVTRAP] Default constructor called." << std::endl;
 }
@@ -33,12 +33,12 @@ ScavTrap::ScavTrap(std::string name)
 {
 	this->hp = 100;
 	this->max_hp = 100;
-	this->energy = 100;
-	this->max_energy = 100;
+	this->energy = 50;
+	this->max_energy = 50;
 	this->lvl = 1;
-	this->melee = 30;
-	this->ranged = 20;
-	this->armor_red = 5;
+	this->melee = 20;
+	this->ranged = 15;
+	this->armor_red = 3;
 	this->attack_name = "None";
 	std::cout << "[SCAVTRAP] " + this->name + " appears." << std::endl;
 }

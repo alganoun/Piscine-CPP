@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 16:16:57 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:19:14 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,14 @@ int		FragTrap::getEnergy() const
 	return (this->energy);
 }
 
-void	FragTrap::rangedAttack(std::string const & target)
+void	FragTrap::rangedAttack(std::string const & target) const
 {
 	std::cout << "[RANGED] " + this->name + " uses " +
 		this->attack_name + " on " + target +
 		" causing " << this->ranged << " points of damages" << std::endl;
 }
 
-void	FragTrap::meleeAttack(std::string const & target)
+void	FragTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "[MELEE] " + this->name + " uses " +
 		this->attack_name + " on " + target +

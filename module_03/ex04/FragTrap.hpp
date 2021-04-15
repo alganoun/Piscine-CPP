@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:30:04 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 16:10:53 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:34:28 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRAGTRAP_HPP
 
 # include <iostream>
+# include <cstdlib>
 # include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap

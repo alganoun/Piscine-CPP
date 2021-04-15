@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:06:25 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 15:59:13 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:33:52 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
-# include <unistd.h>
+# include <cstdlib>
 class ClapTrap
 {
 protected:
@@ -37,8 +37,8 @@ public:
 	virtual ~ClapTrap();
 	std::string	getName() const;
 	int		getEnergy() const;
-	void	rangedAttack(std::string const & target);
-	void	meleeAttack(std::string const & target);
+	void	rangedAttack(std::string const & target) const;
+	void	meleeAttack(std::string const & target) const;
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 	void	display_stats() const;
