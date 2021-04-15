@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 21:46:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 01:07:43 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:57:51 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,10 @@ void		NinjaTrap::ninjaShoebox(FragTrap &FragTrap)
 								"Ninja Normal ranged attack",
 								"Ninja Medium ranged",
 								"Ninja Heavy ranged attack"};
-	if (this->energy > 0)
-		this->energy -= 25;
 	static int random = 0;
 	srand (time(0) + random++);
 	int i = rand() % 6;
-	if (this->energy != 0 && this->hp != 0)
+	if (this->energy > 0 && this->hp != 0)
 	{
 		this->attack_name = attack_list[i];
 		if (i < 5)
@@ -97,6 +95,9 @@ void		NinjaTrap::ninjaShoebox(FragTrap &FragTrap)
 			this->rangedAttack(FragTrap.getName());
 			FragTrap.takeDamage(this->ranged);
 		}
+		this->energy -= 25;
+		if (this->energy < 0)
+			this->energy = 0;
 	}
 	else if (this->energy < 25)
 		std::cout << this->name + " cant attack without energy." << std::endl;
@@ -112,12 +113,10 @@ void		NinjaTrap::ninjaShoebox(ScavTrap &ScavTrap)
 								"Ninja Normal ranged attack",
 								"Ninja Medium ranged",
 								"Ninja Heavy ranged attack"};
-	if (this->energy > 0)
-		this->energy -= 25;
 	static int random = 0;
 	srand (time(0) + random++);
 	int i = rand() % 6;
-	if (this->energy != 0 && this->hp != 0)
+	if (this->energy > 0 && this->hp != 0)
 	{
 		this->attack_name = attack_list[i];
 		if (i < 5)
@@ -132,6 +131,9 @@ void		NinjaTrap::ninjaShoebox(ScavTrap &ScavTrap)
 			this->rangedAttack(ScavTrap.getName());
 			ScavTrap.takeDamage(this->ranged);
 		}
+		this->energy -= 25;
+		if (this->energy < 0)
+			this->energy = 0;
 	}
 	else if (this->energy < 25)
 		std::cout << this->name + " cant attack without energy." << std::endl;
@@ -147,12 +149,10 @@ void		NinjaTrap::ninjaShoebox(ClapTrap &ClapTrap)
 								"Ninja Normal ranged attack",
 								"Ninja Medium ranged",
 								"Ninja Heavy ranged attack"};
-	if (this->energy > 0)
-		this->energy -= 25;
 	static int random = 0;
 	srand (time(0) + random++);
 	int i = rand() % 6;
-	if (this->energy != 0 && this->hp != 0)
+	if (this->energy > 0 && this->hp != 0)
 	{
 		this->attack_name = attack_list[i];
 		if (i < 5)
@@ -167,6 +167,9 @@ void		NinjaTrap::ninjaShoebox(ClapTrap &ClapTrap)
 			this->rangedAttack(ClapTrap.getName());
 			ClapTrap.takeDamage(this->ranged);
 		}
+		this->energy -= 25;
+		if (this->energy < 0)
+			this->energy = 0;
 	}
 	else if (this->energy < 25)
 		std::cout << this->name + " cant attack without energy." << std::endl;
@@ -182,19 +185,17 @@ void		NinjaTrap::ninjaShoebox(NinjaTrap &NinjaTrap)
 								"Ninja Normal ranged attack",
 								"Ninja Medium ranged",
 								"Ninja Heavy ranged attack"};
-	if (this->energy > 0)
-		this->energy -= 25;
 	static int random = 0;
 	srand (time(0) + random++);
 	int i = rand() % 6;
-	if (this->energy != 0 && this->hp != 0)
+	if (this->energy > 0 && this->hp != 0)
 	{
 		this->attack_name = attack_list[i];
 		if (i < 5)
 		{
 			std::cout << "[N -> N]>>";
 			this->meleeAttack(NinjaTrap.getName());
-			NinjaTrap.takeDamage(this->melee);
+			FragTrap.takeDamage(this->melee);
 		}
 		else
 		{
@@ -202,6 +203,9 @@ void		NinjaTrap::ninjaShoebox(NinjaTrap &NinjaTrap)
 			this->rangedAttack(NinjaTrap.getName());
 			NinjaTrap.takeDamage(this->ranged);
 		}
+		this->energy -= 25;
+		if (this->energy < 0)
+			this->energy = 0;
 	}
 	else if (this->energy < 25)
 		std::cout << this->name + " cant attack without energy." << std::endl;
