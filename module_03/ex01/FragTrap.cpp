@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 20:29:31 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 15:41:47 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 16:16:57 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,18 +125,17 @@ void	FragTrap::beRepaired(unsigned int amount)
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	std::string	attack_list[6] = {"Normal attack", "Medium attack", "Heavy attack", "Normal ranged attack", "Medium ranged", "Heavy ranged attack"};
-	if (this->energy > 0)
-		this->energy -= 25;
 	static int random = 0;
 	srand (time(0) + random++);
 	int i = rand() % 6;
-	if (this->energy != 0 && this->hp != 0)
+	if (this->energy > 0 && this->hp != 0)
 	{
 		this->attack_name = attack_list[i];
 		if (i < 5)
 			this->meleeAttack(target);
 		else
 			this->rangedAttack(target);
+		this->energy -= 25;
 	}
 	else if (this->energy == 0)
 		std::cout << this->name + " cant attack without energy." << std::endl;
