@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 18:07:28 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 14:09:21 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 17:08:04 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	SuperTrap::rangedAttack(std::string const & target)
 
 void	SuperTrap::meleeAttack(std::string const & target)
 {
-	NinjaTrap::rangedAttack(target);
+	NinjaTrap::meleeAttack(target);
 }
 
 std::ostream	&operator<<(std::ostream &out, SuperTrap const & temp)

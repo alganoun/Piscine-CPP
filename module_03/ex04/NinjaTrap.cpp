@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/13 21:46:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/15 16:57:51 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 17:06:06 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ void		NinjaTrap::ninjaShoebox(NinjaTrap &NinjaTrap)
 		{
 			std::cout << "[N -> N]>>";
 			this->meleeAttack(NinjaTrap.getName());
-			FragTrap.takeDamage(this->melee);
+			NinjaTrap.takeDamage(this->melee);
 		}
 		else
 		{

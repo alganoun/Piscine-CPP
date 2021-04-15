@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 13:45:44 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 15:46:41 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/15 17:05:10 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,23 +105,31 @@ int main()
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	std::cout << "===================== | Test SuperTrap | =====================" << std::endl;
-	std::cout << std::endl;
+	//std::cout << std::endl;
+//
+	//FragTrap *Darkseid = new SuperTrap("Darkseid");
+	////SuperTrap SteppenWolf(*Darkseid);
+	//std::cout << std::endl;
+//
+	//Darkseid->takeDamage(60);
+	////SteppenWolf.takeDamage(30);
+//
+	//std::cout << std::endl;
+	//Darkseid->display_stats();
+	//std::cout << std::endl;
 
-	FragTrap *Darkseid = new SuperTrap("Darkseid");
-	//SuperTrap SteppenWolf(*Darkseid);
-	std::cout << std::endl;
+	SuperTrap test1("joe");
+    FragTrap  test2("jack");
 
-	Darkseid->takeDamage(60);
-	//SteppenWolf.takeDamage(30);
-
-	std::cout << std::endl;
-	Darkseid->display_stats();
-	std::cout << std::endl;
+    test1.ninjaShoebox(test2);
+    test1.meleeAttack("you");
+    test1.rangedAttack("tube");
+    test1.vaulthunter_dot_exe("bob");
 
 	//std::cout << std::endl;
 	//SteppenWolf.display_stats();
 	//std::cout << std::endl;
-	delete Darkseid;
+	//delete Darkseid;
 
 	return (0);
 }
