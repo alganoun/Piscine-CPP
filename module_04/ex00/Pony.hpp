@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 16:36:17 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 16:38:19 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/19 16:10:18 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 	Pony();
 public:
 	Pony(std::string name);
-	~Pony();
+	virtual ~Pony();
 	std::string	getName() const;
 	void getPolymorphed() const;
 };

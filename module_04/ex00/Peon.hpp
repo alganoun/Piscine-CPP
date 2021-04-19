@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 13:20:11 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 14:56:25 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/19 16:10:17 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 
 public:
 	Peon(std::string name);
-	~Peon();
+	virtual ~Peon();
 	std::string	getName() const;
 	void getPolymorphed() const;
 };

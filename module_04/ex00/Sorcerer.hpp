@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/14 01:39:57 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/14 13:18:08 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/19 16:10:19 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	std::string title;
 public:
 	Sorcerer(std::string name, std::string title);
-	~Sorcerer();
+	virtual ~Sorcerer();
 	std::string	getName() const;
 	std::string	getTitle() const;
 	void	polymorph(Victim const &victim) const;
