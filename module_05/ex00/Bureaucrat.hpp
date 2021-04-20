@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:13:57 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/19 21:15:05 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/20 10:42:37 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ public:
 
 	Bureaucrat &operator=(Bureaucrat const &rhs);
 
-	std::string const &getName();
-	int	getGrade();
+	std::string const &getName() const;
+	int	getGrade() const;
 
 	void	GradeIncrease();
 	void	GradeDecrease();
