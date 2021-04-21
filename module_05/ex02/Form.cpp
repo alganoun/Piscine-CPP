@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:21:49 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 12:18:46 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/21 16:42:33 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,11 @@ void	Form::beSigned(Bureaucrat const &b)
 	if (b.getGrade() < this->sign_grade)
 		this->_signed = true;
 	else
+	{
+		std::cerr << b.getName() + " cannot sign "+
+			this->getName() + " because : Grade is too low." << std::endl;
 		throw GradeTooLowException();
+	}
 }
 
 void	Form::execute(Bureaucrat const &executor) const

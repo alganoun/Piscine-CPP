@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 11:04:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 16:25:36 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/21 20:18:16 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main ()
 {
@@ -50,17 +51,14 @@ int main ()
 
 	try
 	{
-		ShrubberyCreationForm shrub("Target 1");
-		PresidentialPardonForm pres("Target 2");
-		RobotomyRequestForm robot("Target 3");
+		Intern i;
+		Form *form;
 		Bureaucrat eric("Eric", 120);
 		Bureaucrat tom("Tom", 1);
 		Bureaucrat jim("Jim", 150);
-		std::cout << shrub << std::endl;
-		eric.signForm(pres);
-		tom.signForm(robot);
-		eric.executeForm(shrub);
-		tom.executeForm(robot);
+		form = i.makeform("ShrubberyCreation", "bender");
+		std::cout << *form << std::endl;
+		tom.executeForm(*form);
 	}
 	catch (std::exception &e)
 	{
