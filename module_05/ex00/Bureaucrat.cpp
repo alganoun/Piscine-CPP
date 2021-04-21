@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 21:15:09 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/20 10:50:30 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/20 18:08:41 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	Bureaucrat::getGrade() const
 void	Bureaucrat::GradeDecrease()
 {
 	this->grade++;
+	std::cout << "Decreasing the Bureaucrat's grade..." << std::endl;
 	if (this->grade > 150)
 		throw GradeTooLowException();
 }
@@ -61,21 +62,24 @@ void	Bureaucrat::GradeDecrease()
 void	Bureaucrat::GradeIncrease()
 {
 	this->grade--;
+	std::cout << "Increasing the Bureaucrat's grade..." << std::endl;
 	if (this->grade < 1)
 		throw GradeTooHighException();
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.\n");
+	return ("[BUREAUCRAT] Grade is too high.");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.\n");
+	return ("[BUREAUCRAT] Grade is too low.");
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &tmp)
 {
-	out << tmp.getName() + " bureaucrat grade " << tmp.getGrade() << "." << std::endl;
+	out << tmp.getName() + " bureaucrat grade " << tmp.getGrade() << ".";
+	return (out);
 }
+

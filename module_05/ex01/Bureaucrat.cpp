@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 21:15:09 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 15:51:35 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/20 18:20:12 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return ("[BUREAUCRAT] Grade is too low.");
 }
 
-void	Bureaucrat::signForm(Form &f) const
+void	Bureaucrat::SignForm(Form &f) const
 {
 	if (f.getSigned() == false)
 	{
@@ -87,17 +87,6 @@ void	Bureaucrat::signForm(Form &f) const
 	else
 		std::cout << "The form is already signed" << std::endl;
 
-}
-
-void	Bureaucrat::executeForm(Form const &form) const
-{
-	if (form.getSigned() == true)
-	{
-		std::cout << this->name + " executes the form..." << std::endl;
-		form.execute(*this);
-	}
-	else
-		std::cout << "The " + form.getName() + " needs to be signed to be executed." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &tmp)

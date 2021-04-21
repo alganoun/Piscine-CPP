@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:21:49 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 12:18:46 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/21 09:02:04 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,21 +47,6 @@ const char *Form::GradeTooLowException::what() const throw()
 	return ("[FORM] Grade is too low.");
 }
 
-const char *Form::UnsignedFormException::what() const throw()
-{
-	return ("[FORM] Form is unsigned it cannot be used.");
-}
-
-const char* Form::FileOpenException::what() const throw()
-{
-	return "[FORM] Cannot open file";
-}
-
-const char* Form::FileWriteException::what() const throw()
-{
-	return "[FORM] Error while writing to the file";
-}
-
 Form &Form::operator=(Form const &rhs)
 {
 	if (this == &rhs)
@@ -98,14 +83,6 @@ void	Form::beSigned(Bureaucrat const &b)
 		this->_signed = true;
 	else
 		throw GradeTooLowException();
-}
-
-void	Form::execute(Bureaucrat const &executor) const
-{
-	if (executor.getGrade() > this->exec_grade)
-		throw Form::GradeTooLowException();
-	if (!this->_signed)
-		throw Form::UnsignedFormException();
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &tmp)

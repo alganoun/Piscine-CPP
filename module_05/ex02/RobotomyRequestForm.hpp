@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/21 10:23:23 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 15:36:50 by allanganoun      ###   ########.fr       */
+/*   Created: 2021/04/21 09:14:09 by allanganoun       #+#    #+#             */
+/*   Updated: 2021/04/21 15:36:42 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-# include <string>
-# include <fstream>
+# include <iostream>
 # include "Form.hpp"
 
-class ShrubberyCreationForm: public Form
+class RobotomyRequestForm: public Form
 {
 private:
 	std::string target;
-	ShrubberyCreationForm();
+	RobotomyRequestForm();
 public:
-	ShrubberyCreationForm(std::string const &target);
-	ShrubberyCreationForm(ShrubberyCreationForm const &copied);
-	virtual ~ShrubberyCreationForm();
-	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &rhs);
+	RobotomyRequestForm(std::string const &target);
+	RobotomyRequestForm(RobotomyRequestForm const &copied);
+	virtual ~RobotomyRequestForm();
+
+	RobotomyRequestForm &operator=(RobotomyRequestForm const &rhs);
+
 	virtual void execute(Bureaucrat const &executor) const;
 };
 

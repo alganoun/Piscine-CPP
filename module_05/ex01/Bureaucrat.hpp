@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 16:13:57 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 15:51:25 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/20 17:58:44 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ public:
 
 	void	GradeIncrease();
 	void	GradeDecrease();
-	void	signForm(Form &f) const;
-	void	executeForm(Form const &form) const;
+	void	SignForm(Form &f) const;
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &tmp);

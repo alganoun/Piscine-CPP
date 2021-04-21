@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:22:21 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 15:36:08 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/21 09:03:53 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,7 @@ public:
 	{
 		virtual const char *what() const throw();
 	};
-	class	UnsignedFormException : public std::exception
-	{
-		virtual const char *what() const throw();
-	};
-	class FileOpenException: public std::exception
-	{
-		virtual const char* what() const throw();
-	};
-	class FileWriteException: public std::exception {
-		virtual const char* what() const throw();
-	};
+
 	Form &operator=(Form const &rhs);
 
 	std::string const &getName() const;
@@ -55,8 +45,7 @@ public:
 	int		getSignGrade() const;
 	int		getExecGrade() const;
 
-	virtual void	beSigned(Bureaucrat const &b);
-	virtual void	execute(Bureaucrat const &executor) const;
+	void	beSigned(Bureaucrat const &b);
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &tmp);

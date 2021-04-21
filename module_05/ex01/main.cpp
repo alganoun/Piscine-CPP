@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 11:04:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/20 11:46:29 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/20 18:19:41 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ int main ()
 	}
 	try
 	{
-		Bureaucrat eric("Eric", 147);
+		Bureaucrat eric("Eric", 150);
+		Form n1("Form 1", 130, 140);
+		std::cout << n1<< std::endl;
+		eric.SignForm(n1);
 		std::cout << eric << std::endl;
+		eric.SignForm(n1);
 	}
 	catch (std::exception const &e)
 	{
