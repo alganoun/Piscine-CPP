@@ -6,7 +6,7 @@
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 11:04:48 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/21 20:18:16 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/21 20:40:39 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ int main ()
 		form = i.makeform("ShrubberyCreation", "bender");
 		std::cout << *form << std::endl;
 		tom.executeForm(*form);
+		delete form;
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
 	}
-
 	return (0);
 }
