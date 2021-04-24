@@ -3,58 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 14:14:16 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/24 00:05:34 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/24 03:16:59 by allanganoun      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-#include <iostream>
 #include <limits>
-#include <math.h>
 #include <iomanip>
-#include <vector>
 
-
-
-int	nb_len(int i, char *str)
+int	check_num(char *str)
 {
-	while (str[i] && str[i] != '.')
-		i++;
-	if (str[i] == '.')
-		i++;
-	return (i);
-}
-
-int dec_len(int i, int j, char *str)
-{
-	int is_f = 0;
-
-	while (str[i + j])
+	int found = 0;
+	for (int i = 0 ; str[i] ; i++)
 	{
-		j++;
-		if (str[i + j] == 'f')
-			is_f++;
+		if (!isdigit(str[i]))
+	 	{
+			if (str[i] == '.' && found == 1)
+				return(-1);
+			else if (str[i] == '.' && i != 0 && isdigit(str[i - 1]))
+				found = 1;
+			else
+				return (-1);
+		}
 	}
-	if (j > 5)
-		j = 5;
-	else if (j == 0)
-		j = 1;
-	else if (is_f == 1)
-		j--;
-	return (j);
+	return (1);
 }
 
-int is_char(char *str)
+int print_error()
 {
-	if (strlen(str) == 1 && isdigit(*str))
+	std::cout << "CHAR : Impossible." << std::endl;
+	std::cout << "INT : Impossible." << std::endl;
+	std::cout << "FLOAT : Impossible." << std::endl;
+	std::cout << "DOUBLE : Impossible." << std::endl;
+	return (0);
+}
+
+int		check_nan_inf(char *str)
+{
+	if (std::string(str) == "nan" || std::string(str) == "nanf"
+		|| std::string(str) == "-inf" || std::string(str) == "-inff"
+		|| std::string(str) == "+inf" || std::string(str) == "+inff")
+		return (1);
+	return (0);
+}
+
+int char_process(char *str)
+{
+	if ((strlen(str) == 1 && isdigit(*str)) 
+		|| (strlen(str) != 1 && std::isprint(*str)))
 		return (-1);
-	if (strlen(str) != 1 && std::isprint(*str))
-		return (-1);
-	std::cout << "CHAR : " << static_cast<char>(*str) << std::endl;
+	std::cout << "CHAR : " << "'" << static_cast<char>(*str) << "'" << std::endl;
 	std::cout << "INT : " << static_cast<int>(*str) << std::endl;
 	std::cout << std::setprecision(1) << std::fixed << "FLOAT : " << static_cast<float>(*str) << "f" << std::endl;
 	std::cout << std::setprecision(1) << std::fixed << "DOUBLE : " << static_cast<double>(*str) << std::endl;
@@ -62,72 +63,46 @@ int is_char(char *str)
 
 }
 
-void is_str(const char *str)
+int check_precision(char *str)
 {
-	int i_str = 0;
-	int i = 0;
-
-	while (str[i])
+	unsigned int precision = 1;
+	if (check_num(str) == 1)
 	{
-		if (isalpha(str[i]))
-			i_str++;
-		i++;
+		for (int i = 0 ; str[i] ; i++)
+		{
+			if(str[i] == '.')
+				for (int j = i ; str[j] ; j++)
+					precision = j - i;
+		}
 	}
-
-	double tmp;
-	tmp = strtod(str, NULL);
-	if (isnan(tmp) || isinf(tmp) || tmp == 0)
-		return;
-	if (i_str > 4)
-		throw std::exception();
-	if (i_str >= 2 && strlen(str) != i_str)
-		throw std::exception();
-
-
+	return (precision);
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
-	if (ac != 2)
+	if (argc != 2)
 	{
-		std::cerr << "Invalid number of arguments" << std::endl;
-		return (1);
-	}
-	try
-	{
-		is_str(av[1]);
-	}
-	catch (const std::exception & e)
-	{
-		std::cout << "CHAR : Impossible.\nINT : Impossible.\nFLOAT : Impossible.\nDOUBLE : Impossible.\n" << std::endl;
+		std::cout << "Wrong number of arguments." << std::endl;
 		return (0);
 	}
-	if (is_char(av[1]) == 0)
-		return (0);
-
-	std::string temp = av[1];
+	else if (check_num(argv[1]) == -1 && strlen(argv[1]) != 1 && check_nan_inf(argv[1]) != 1)
+		return (print_error());
 	double	d;
-	int		idx_dec = 0;
-	int 	idx = 0;
-
-	d = std::atof(temp.c_str());
-	idx = nb_len(idx, av[1]);
-	idx_dec = dec_len(idx, idx_dec, av[1]);
-
-	if (d < CHAR_MIN || d > CHAR_MAX || isnan(d) || isinf(d))
+	d = std::atof(argv[1]);
+	if (char_process(argv[1]) == 0)
+		return (0);
+	if (d < CHAR_MIN || d > CHAR_MAX || check_nan_inf(argv[1]) == 1)
 		std::cout << "CHAR : Impossible." << std::endl;
 	else if (std::isprint(d))
 		std::cout << "CHAR : '" << static_cast<char>(d) << "'" << std::endl;
 	else
-		std::cout << "CHAR : can't display." << std::endl;
+		std::cout << "CHAR : Non Displayable." << std::endl;
 
-	if (d < INT_MIN || d > INT_MAX || isnan(d) || isinf(d))
+	if (d < INT_MIN || d > INT_MAX || check_nan_inf(argv[1]) == 1)
 		std::cout << "INT : Impossible." << std::endl;
 	else
 		std::cout << "INT : " << static_cast<int>(d) << std::endl;
-
-	std::cout << std::setprecision(idx_dec) << std::fixed << "FLOAT : " << static_cast<float>(d) << "f" << std::endl;
-	std::cout << std::setprecision(idx_dec) << std::fixed << "DOUBLE : " << d << std::endl;
-
+	std::cout << std::setprecision(check_precision(argv[1])) << std::fixed << "FLOAT : " << static_cast<float>(d) << "f" << std::endl;
+	std::cout << std::setprecision(check_precision(argv[1])) << std::fixed << "DOUBLE : " << d << std::endl;
 	return (0);
 }
