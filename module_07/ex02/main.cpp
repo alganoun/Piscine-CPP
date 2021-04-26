@@ -5,26 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/25 17:46:11 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/26 10:58:42 by allanganoun      ###   ########.fr       */
+/*   Created: 2021/04/26 17:19:25 by allanganoun       #+#    #+#             */
+/*   Updated: 2021/04/26 17:21:19 by allanganoun      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+//#include "Array.hpp"
 
-int main( void )
+#include <iostream>
+
+int main()
 {
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-	return 0;
+	int *a = new int();
+	std::cout << *a << std::endl;
+	return (0);
 }
