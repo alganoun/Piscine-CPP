@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: allanganoun <allanganoun@student.42.fr>    +#+  +:+       +#+        */
+/*   By: allanganoun <allanganoun@student.42lyon    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 14:53:56 by allanganoun       #+#    #+#             */
-/*   Updated: 2021/04/26 20:20:53 by allanganoun      ###   ########.fr       */
+/*   Updated: 2021/04/27 01:39:57 by allanganoun      ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,31 @@ template <typename T>
 class Array
 {
 private:
-	int size;
+	int array_size;
 	T *ptr;
 public:
 	Array();
 	Array(unsigned int n);
 	Array(Array const &copied);
 	~Array();
-	class SizeTooBig : std::exception{
+	class WrongIndex : public std::exception{
 		virtual const char *what() const throw();
 	};
 	Array<T> &operator=(Array<T> const &rhs);
-	T	&operator[](int size) const;
+	T	&operator[](int array_size) const;
 	int size() const;
 };
 
 template <typename T>
 Array<T>::Array()
-:size(0), ptr(NULL)
+:array_size(0), ptr(NULL)
 {
 
 }
 
 template <typename T>
 Array<T>::Array(unsigned int n)
-:size(n), ptr(NULL)
+:array_size(n), ptr(NULL)
 {
 	this->ptr = new T[n];
 }
@@ -52,18 +52,18 @@ Array<T>::Array(unsigned int n)
 template <typename T>
 Array<T>::Array(Array const &copied)
 {
-	this->ptr = new T[copied.size];
-	for (int i = 0 ; i < copied.size ; i++)
-		this->ptr[i] = copied.ptr[i];
+	*this = copied;
 }
 
 template <typename T>
 Array<T>::~Array()
 {
+	if (this->array_size > 0)
+		delete [] this->ptr;
 }
 
 template <typename T>
-const char *Array<T>::SizeTooBig::what() const throw()
+const char *Array<T>::WrongIndex::what() const throw()
 {
 	return ("Out of bounds.");
 }
@@ -73,14 +73,14 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
 {
 	if (this == &rhs)
 		return (*this);
-	if (this->size > 0)
+	if (this->array_size > 0)
 		delete[] this->ptr;
 	this->ptr = NULL;
-	if (rhs.size > 0)
+	this->array_size = rhs.array_size;
+	if (rhs.array_size > 0)
 	{
-		this->ptr = new T[rhs.size];
-		this->size = rhs.size;
-		for (int i = 0 ; i < rhs.size ; i++)
+		this->ptr = new T[rhs.array_size];
+		for (int i = 0 ; i < rhs.array_size ; i++)
 			this->ptr[i] = rhs.ptr[i];
 	}
 	return (*this);
@@ -89,15 +89,15 @@ Array<T> &Array<T>::operator=(Array<T> const &rhs)
 template <typename T>
 T	&Array<T>::operator[](int index) const
 {
-	if (index > this->size)
-		throw SizeTooBig();
+	if (index > this->array_size || index < 0)
+		throw WrongIndex();
 	return (this->ptr[index]);
 }
 
 template <typename T>
 int	Array<T>::size() const
 {
-	return (this->size);
+	return (this->array_size);
 }
 
 #endif
